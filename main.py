@@ -2,6 +2,7 @@
 
 # Create a program that will take user input about dinner guests they are inviting
 import random
+
 # Ask for user's name and greet them
 def greeting() -> str :
     """
@@ -10,6 +11,8 @@ def greeting() -> str :
     name = input("What is your name? \n").title().strip()
 
     print(f"Hi {name}! Welcome to my Number Guessing Game.") 
+
+    return name
 
 def add_guest(total_guests : int) -> str :
     """
@@ -36,6 +39,19 @@ def add_guest(total_guests : int) -> str :
             print("Please enter valid arguements! ")
             continue
 
+        return guest_list
+
+
+def print_list(name, guest_list):
+    """
+    This function prints the guest list with personalized invitations
+    """
+
+    for guest in guest_list:
+        print(f"Hello {guest}! \n\n\
+        You have been cordially invited to my Dinner. Please let me know if this Saturday night is a good time for you. \n \n\
+        With regards \n\
+        {name}")
 
 
 def invite():
@@ -49,8 +65,10 @@ def invite():
 
             # Ask the user how many guests they want to invite
             total_guests = int(input("How many people would you like to invite? : "))
-            
+            greeting()
             add_guest(total_guests)
+            print_list(name, guest_list)
+            
             break
 
         except ValueError:
@@ -59,7 +77,32 @@ def invite():
 
     return total_guests
 
-invite()
+def replace_guest(guest_list):
+    """
+    This functions asks the user if they want to remove or replace a guest from the list
+    """
+    while True:
+        try:
+            print("1. Replace guest \n 2. Remove guest 3. Keep list same")
+
+            choice = int(input("Please choose an option [1/2/3] : "))
+
+            if choice == 1:
+                
+                continue
+
+            elif choice == 2:
+
+                continue
+
+            elif choice == 3: 
+
+                break
+
+        except ValueError:
+            print
+
+
 
 # Print out invitations for each dinner guest
 
@@ -69,4 +112,26 @@ invite()
 
 # Regenerate invitation list
 
-# Add play again 
+# Add use again 
+def use_again() -> str:
+    """
+    This function gives the user the choice to use the program again.
+    """
+    while True:
+
+        # Ask if they want to use the program again, only accepting 'y' or 'n'
+        choice = input("Do you wish to use the guest list again? [y/n] - ").strip().lower()
+
+        # Run game function again if user chooses "y"
+        if choice == "y":
+            invite()
+
+        # End the game if user chooses "n"    
+        elif choice == "n":
+            break
+
+        # Tell user to choose only between "y/n"
+        else:
+            print("Please enter y/n ") 
+        
+
