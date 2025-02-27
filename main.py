@@ -60,7 +60,7 @@ def edit_guest(name : str, guest_list : list) -> str:
     """
     while True:
         try:
-            print(" 1. Remove guest \n 2. Add guest \n 3. Print List \n 4. Exit")
+            print(" 1. Remove a guest from the list \n 2. Add another guest to the list \n 3. Print the invitation List \n 4. Exit the program")
 
             # Give user the options to edit the list 
             choice = int(input("Please choose an option [1/2/3/4] : "))
