@@ -1,24 +1,11 @@
 # F.Rakin_Dinner_Guest_List
 
 # Create a program that will take user input about dinner guests they are inviting
-import random
 
-# Ask for user's name and greet them
-def greeting() -> str :
+def add_guest(total_guests : int , guest_list : list) -> str :
     """
-    This function asks the user's name and greets the user
+    This function adds the names of the people invited to the guest list and sends a personalized invitation
     """
-    name = input("What is your name? \n").title().strip()
-
-    print(f"Hi {name}! Welcome to my Number Guessing Game.") 
-
-    return name
-
-def add_guest(total_guests : int) -> str :
-    """
-    This function adds the names of the people invited to the guest list
-    """
-    guest_list = []
     guest_counter = 1
 
     while True:
@@ -39,7 +26,38 @@ def add_guest(total_guests : int) -> str :
             print("Please enter valid arguements! ")
             continue
 
-        return guest_list
+
+
+def edit_guest(name, guest_list):
+    """
+    This functions asks the user if they want to remove or add another guest to the list
+    """
+    while True:
+        try:
+            print(" 1. Remove guest \n 2. Add guest \n 3. Print List \n 4. Exit")
+
+            choice = int(input("Please choose an option [1/2/3/4] : "))
+
+            if choice == 1:
+                guest_list.remove(input("Write the name of the person you want to remove : "))
+
+                continue
+
+            elif choice == 2:
+                guest_list.append(input("Invite another person to the Dinner: "))
+
+                continue
+
+            elif choice == 3: 
+                print_list(name, guest_list)
+                continue
+
+            elif choice == 4:
+                break
+
+        except ValueError:
+            print("Please enter a valid operation!")
+            continue
 
 
 def print_list(name, guest_list):
@@ -48,61 +66,10 @@ def print_list(name, guest_list):
     """
 
     for guest in guest_list:
-        print(f"Hello {guest}! \n\n\
-        You have been cordially invited to my Dinner. Please let me know if this Saturday night is a good time for you. \n \n\
-        With regards \n\
-        {name}")
-
-
-def invite():
-    """
-    This function asks the number of people they want to invite and prints the guest list
-
-    :return: Total guests 
-    """
-    while True:
-        try:
-
-            # Ask the user how many guests they want to invite
-            total_guests = int(input("How many people would you like to invite? : "))
-            greeting()
-            add_guest(total_guests)
-            print_list(name, guest_list)
-            
-            break
-
-        except ValueError:
-            print("Please enter a valid integer")
-            continue
-
-    return total_guests
-
-def replace_guest(guest_list):
-    """
-    This functions asks the user if they want to remove or replace a guest from the list
-    """
-    while True:
-        try:
-            print("1. Replace guest \n 2. Remove guest 3. Keep list same")
-
-            choice = int(input("Please choose an option [1/2/3] : "))
-
-            if choice == 1:
-                
-                continue
-
-            elif choice == 2:
-
-                continue
-
-            elif choice == 3: 
-
-                break
-
-        except ValueError:
-            print
-
-
+        print(f"Hello {guest}! \n\
+You have been cordially invited to my Dinner. Please let me know if this Saturday night is a good time for you.  \n\
+With regards \n\
+{name}")
 
 # Print out invitations for each dinner guest
 
@@ -111,6 +78,36 @@ def replace_guest(guest_list):
 # Replace person if user chooses "y"
 
 # Regenerate invitation list
+
+def invite():
+    """
+    This function greets the user and asks the number of people they want to invite and prints the guest list
+
+    :return: Total guests 
+    """
+
+    guest_list = []
+
+    user_name = input("What is your name? \n").title().strip() 
+
+    print(f"Hi {user_name}! Welcome to the Guest List Organizer.") 
+
+    while True:
+        try:
+
+            # Ask the user how many guests they want to invite
+            total_guests = int(input("How many people would you like to invite? : "))
+                
+            add_guest(total_guests, guest_list)
+            edit_guest(user_name, guest_list)
+            
+            break
+
+        except ValueError:
+            print("Please enter a valid integer")
+            continue
+
+    return guest_list
 
 # Add use again 
 def use_again() -> str:
@@ -135,3 +132,4 @@ def use_again() -> str:
             print("Please enter y/n ") 
         
 
+invite()
