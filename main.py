@@ -16,9 +16,21 @@ def add_guest(total_guests : int , guest_list : list) -> str :
             if guest_counter <= total_guests:
 
                 # Add names to a list
-                guest_list.append(input("Invite a person to The Grand Banquet : ").title().strip())
-                guest_counter += 1
-                continue
+                new_guest = input("Invite a person to The Grand Banquet : ").title().strip()
+
+                # Loop to check if new guest is already in the list
+                if new_guest in guest_list:
+                    print(f"{new_guest} is already invited to the Dinner!")  
+                    continue
+
+                # Add guest to list if already not in list
+                else:
+                    guest_list.append(new_guest)
+
+                    guest_counter += 1
+                    # Print a message saying that the guest has been added
+                    print(f"{new_guest} has been added to the invitation list")
+                    continue
 
             # Breaks loop when all guests are invited
             elif guest_counter > total_guests: 
