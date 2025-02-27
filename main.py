@@ -27,6 +27,17 @@ def add_guest(total_guests : int , guest_list : list) -> str :
             continue
 
 
+def print_list(name, guest_list):
+    """
+    This function prints the guest list with personalized invitations
+    """
+
+    for guest in guest_list:
+        print(f"Hello {guest}! \n\
+You have been cordially invited to my Dinner. Please let me know if this Saturday night is a good time for you.  \n\
+With regards \n\
+{name}")
+
 
 def edit_guest(name, guest_list):
     """
@@ -39,7 +50,7 @@ def edit_guest(name, guest_list):
             choice = int(input("Please choose an option [1/2/3/4] : "))
 
             if choice == 1:
-                guest_list.remove(input("Write the name of the person you want to remove : "))
+                guest_list.remove(input("Write the name of the person you want to remove : ").strip().title())
 
                 continue
 
@@ -58,19 +69,6 @@ def edit_guest(name, guest_list):
         except ValueError:
             print("Please enter a valid operation!")
             continue
-
-
-def print_list(name, guest_list):
-    """
-    This function prints the guest list with personalized invitations
-    """
-
-    for guest in guest_list:
-        print(f"Hello {guest}! \n\
-You have been cordially invited to my Dinner. Please let me know if this Saturday night is a good time for you.  \n\
-With regards \n\
-{name}")
-
 # Print out invitations for each dinner guest
 
 # Ask the user if they want to replace someone
@@ -108,28 +106,6 @@ def invite():
             continue
 
     return guest_list
-
-# Add use again 
-def use_again() -> str:
-    """
-    This function gives the user the choice to use the program again.
-    """
-    while True:
-
-        # Ask if they want to use the program again, only accepting 'y' or 'n'
-        choice = input("Do you wish to use the guest list again? [y/n] - ").strip().lower()
-
-        # Run game function again if user chooses "y"
-        if choice == "y":
-            invite()
-
-        # End the game if user chooses "n"    
-        elif choice == "n":
-            break
-
-        # Tell user to choose only between "y/n"
-        else:
-            print("Please enter y/n ") 
         
 
 invite()
