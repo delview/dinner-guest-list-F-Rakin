@@ -11,16 +11,23 @@ def add_guest(total_guests : int , guest_list : list) -> str :
 
     while True:
         try: 
+            # If input is less than 0, tells user to invite atleast 1 guest
+            if total_guests < 0:
+                print("You need to invite atleast 1 person! ")
+
+                # Runs the main function again for a different input
+                invite()
+                break
 
             # Create a loop that will keep appending names to the list until the maximum number is reached
-            if guest_counter <= total_guests:
+            elif guest_counter <= total_guests:
 
                 # Add names to a list
                 new_guest = input("Invite a person to The Grand Banquet : ").title().strip()
 
                 # Loop to check if new guest is already in the list
                 if new_guest in guest_list:
-                    print(f"{new_guest} is already invited to the Dinner!")  
+                    print(f"\n{new_guest} is already invited to the Dinner!\n")  
                     continue
 
                 # Add guest to list if already not in list
@@ -29,7 +36,7 @@ def add_guest(total_guests : int , guest_list : list) -> str :
 
                     guest_counter += 1
                     # Print a message saying that the guest has been added
-                    print(f"{new_guest} has been added to the invitation list")
+                    print(f"\n{new_guest} has been added to the invitation list\n")
                     continue
 
             # Breaks loop when all guests are invited
@@ -73,7 +80,7 @@ def edit_guest(name : str, guest_list : list) -> str:
                 guest_list.remove(removed_guest)
                 
                 # Print a message saying the guest is removed
-                print(f"{removed_guest} has been removed from the invitation list")
+                print(f"\n{removed_guest} has been removed from the invitation list\n")
                 continue
 
             elif choice == 2:
@@ -82,7 +89,7 @@ def edit_guest(name : str, guest_list : list) -> str:
 
                 # Loop again if the added guest is already in the list
                 if added_guest in guest_list:
-                    print(f"{added_guest} is already invited to the Dinner!")  
+                    print(f"\n{added_guest} is already invited to the Dinner!\n")  
                     continue
 
                 # Add guest to list if already not in list
@@ -90,7 +97,7 @@ def edit_guest(name : str, guest_list : list) -> str:
                     guest_list.append(added_guest)
 
                     # Print a message saying that the guest has been added
-                    print(f"{added_guest} has been added to the invitation list")
+                    print(f"\n{added_guest} has been added to the invitation list\n")
                     continue
 
             elif choice == 3: 
@@ -139,8 +146,7 @@ def invite() -> str:
             print("Please enter a valid integer")
             continue
 
-    return guest_list
   
-        
+# Call the main invite function to run the program
 if __name__ == "__main__":  
     invite()
