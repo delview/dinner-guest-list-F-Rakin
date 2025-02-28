@@ -1,2 +1,19 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/rhFAQ_Wc)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=18399718)
+Dinner Guest List
+
+# Instructions
+
+1) Input your name.
+
+2) Input the number of guests you would like to invite.
+
+3) Write the names of the guests.
+
+4) Choose an option depending on what you want to do : 
+    1) Remove a guest from your invitation ist
+    2) Add another guest your invitation list
+    3) Display your invitations
+    4) Exit the program
+
+5) Enjoy using the Dinner guest List!
+
+
