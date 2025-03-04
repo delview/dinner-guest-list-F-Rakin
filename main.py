@@ -53,6 +53,9 @@ def print_list(name : str, guest_list : list) -> str:
     """
     This function prints the guest list with personalized invitations
     """
+    # Print the total number of guests 
+    print(f"\nTotal number of guests invited: {len(guest_list)}")
+
     # Print out invitations for each dinner guest
     for guest in guest_list:
         print(f"\nHello {guest}! \n\
@@ -107,6 +110,7 @@ def edit_guest(name : str, guest_list : list) -> str:
 
             elif choice == 4:
                 # End the program
+                print("Thank you for using the Dinner Guest List")
                 break
 
         except ValueError:
